@@ -1,0 +1,32 @@
+:root {
+    --primary-color--: #001C30;
+    --secondary-color--: #176B87;
+    --tertiary-color--: #64CCC5;
+    --fourth-color--: #DAFFFB;
+}
+
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#header {
+    background-color: var(--secondary-color--);
+    color: white;
+    padding: 15px;
+    height: 8vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}

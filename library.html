@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Library App</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Roboto:ital,wght@0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css" />
+		<script src="app.js" defer></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<div>
+					<h1>Read Next</h1>
+				</div>
+				<div>
+					<p>Filter</p>
+					<p>Clear All</p>
+				</div>
+			</div>
+			<div id="add-book-section">
+				<div>
+					<h3>Add your next book</h4>
+				</div>
+				<div>
+					<form action="#" method="post">
+						<div>
+							<label for="animal">What is the title?</label>
+							<input type="text" id="book-title" name="book-title">
+						</div>
+						<div>
+							<label for="book-author">Who is the author?</label>
+							<input type="text" id="book-author" name="book-author">
+						</div>
+						<div>
+							<label for="book-pages">How many pages does the book have?</label>
+							<input type="text" id="book-pages" name="book-pages">
+						</div>
+						<div>
+							<label for="book-read">Have you read this book?</label>
+							<button>Yes</button>
+							<button>No</button>
+						</div>
+						<div>
+							<button>ADD NEW BOOK</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="books-section"></div>
+		</div>
+	</body>
+</html>
