@@ -10,13 +10,22 @@
     border: 0;
 }
 
-body {
+body,
+input,
+button {
     font-family: 'Open Sans', sans-serif;
+}
+
+input {
+    background-color: silver;
+    border: 2px solid white;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 #header {
     background-color: var(--secondary-color--);
-    color: white;
+    color: var(--fourth-color--);
     padding: 15px;
     height: 8vh;
 
@@ -29,4 +38,45 @@ body {
     display: flex;
     align-items: center;
     gap: 25px;
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: minmax(200px, 320px) 1fr;
+
+    height: 100vh;
+}
+
+#add-book-section {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+#add-book-section>div:first-child {
+    margin-bottom: 25px;
+}
+
+#add-book-form {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+form>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.req {
+    color: red;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--secondary-color--);
 }

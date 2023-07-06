@@ -21,36 +21,40 @@
 					<p>Clear All</p>
 				</div>
 			</div>
-			<div id="add-book-section">
-				<div>
-					<h3>Add your next book</h4>
+			<div class="content-container">
+				<div id="add-book-section">
+					<div>
+						<h3>Add your next book</h4>
+					</div>
+					<div id="add-book-form">
+						<form action="#" method="post">
+							<div>
+								<label for="animal">What is the title of the book? <span class="req">*</span></label>
+								<input type="text" id="book-title" name="book-title" required>
+							</div>
+							<div>
+								<label for="book-author">Who is the author of the book? <span class="req">*</span></label>
+								<input type="text" id="book-author" name="book-author" required>
+							</div>
+							<div>
+								<label for="book-pages">How many pages does the book have? <span class="req">*</span></label>
+								<input type="number" id="book-pages" name="book-pages" min="1" required>
+							</div>
+							<div>
+								<label for="book-read">Have you read this book? <span class="req">*</span></label>
+								<p>
+									<button type="button">Yes</button>
+									<button type="button">No</button>
+								</p>
+							</div>
+							<div>
+								<span><button>ADD NEW BOOK</button></span>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div>
-					<form action="#" method="post">
-						<div>
-							<label for="animal">What is the title?</label>
-							<input type="text" id="book-title" name="book-title">
-						</div>
-						<div>
-							<label for="book-author">Who is the author?</label>
-							<input type="text" id="book-author" name="book-author">
-						</div>
-						<div>
-							<label for="book-pages">How many pages does the book have?</label>
-							<input type="text" id="book-pages" name="book-pages">
-						</div>
-						<div>
-							<label for="book-read">Have you read this book?</label>
-							<button>Yes</button>
-							<button>No</button>
-						</div>
-						<div>
-							<button>ADD NEW BOOK</button>
-						</div>
-					</form>
-				</div>
+				<div id="books-section"></div>
 			</div>
-			<div id="books-section"></div>
 		</div>
 	</body>
 </html>
