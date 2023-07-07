@@ -16,13 +16,6 @@ button {
     font-family: 'Open Sans', sans-serif;
 }
 
-input {
-    background-color: silver;
-    border: 2px solid white;
-    padding: 3px;
-    border-radius: 5px;
-}
-
 #header {
     background-color: var(--secondary-color--);
     color: var(--fourth-color--);
@@ -50,6 +43,11 @@ input {
 #add-book-section {
     margin-top: 30px;
     margin-left: 20px;
+    color: var(--primary-color--);
+}
+
+#add-book-section h3 {
+    font-size: 1.3em;
 }
 
 #add-book-section>div:first-child {
@@ -74,6 +72,46 @@ form>div {
 
 .req {
     color: red;
+}
+
+input {
+    background-color: rgb(239, 239, 239);
+    border: 1px solid var(--tertiary-color--);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+input:hover {
+    opacity: .8;
+    border: 1px solid var(--secondary-color--);
+}
+
+button {
+    background-color: var(--secondary-color--);
+    color: var(--fourth-color--);
+    border: 1px solid var(--fourth-color--);
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: .8;
+}
+
+.sq-button {
+    margin-top: 5px;
+    padding: 5px 10px;
+}
+
+.sq-button:active {
+    opacity: .8;
+    background-color: var(--tertiary-color--);
+    color: var(--primary-color--);
+}
+
+span button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 700;
 }
 
 input:focus {
