@@ -2,6 +2,7 @@ const submitBook = document.getElementById("submit-book");
 const bookTitleField = document.getElementById("book-title");
 const bookAuthorField = document.getElementById("book-author");
 const bookLengthField = document.getElementById("book-pages");
+const bookReadField = document.getElementById("book-read");
 const formElem = document.querySelector("form");
 
 function Book(title, author, pages, read) {
@@ -18,15 +19,13 @@ Book.prototype.info = function () {
 let newBookTitle = "";
 let newBookAuthor = "";
 let newBookLength = 0;
+let newBook = {};
 
 submitBook.addEventListener("click", (e) => {
-    e.preventDefault();
     newBookTitle = bookTitleField.value;
     newBookAuthor = bookAuthorField.value;
     newBookLength = bookLengthField.value;
+    newBookRead = bookReadField.value;
 
-    const newBook = new Book(newBookTitle, newBookAuthor, newBookLength);
-    console.log(newBook);
-    newBook.info();
+    newBook = new Book(newBookTitle, newBookAuthor, newBookLength, newBookRead);
 });
-

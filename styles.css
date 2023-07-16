@@ -77,6 +77,8 @@ form>div {
 input, select {
     background-color: rgb(239, 239, 239);
     border: 1px solid var(--tertiary-color--);
+    color: var(--primary-color--);
+    font-weight: 500;
     padding: 3px;
     border-radius: 5px;
 }
@@ -129,7 +131,11 @@ input:focus, select:focus {
 
 .book {
     background-color: var(--secondary-color--);
+    border-radius: 10px;
     color: var(--fourth-color--);
     padding: 10px;
-    border-radius: 10px;
+}
+
+.book h4 {
+    font-size: 1.2em;
 }
