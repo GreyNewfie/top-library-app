@@ -4,7 +4,6 @@ const bookAuthorField = document.getElementById("book-author");
 const bookLengthField = document.getElementById("book-pages");
 const bookReadField = document.getElementById("book-read");
 const formElem = document.querySelector("form");
-
 const booksSection = document.getElementById("books-section");
 
 // Get books from local storage
@@ -35,26 +34,30 @@ function showBooksInLibrary(library) {
         const titleNode = document.createElement("h4");
         let titleContent = document.createTextNode(`${book.title}`);
         titleNode.appendChild(titleContent);
-        divNode.appendChild(titleNode);
     
         const authorNode = document.createElement("p");
         let authorContent = document.createTextNode(`Written by ${book.author}`);
         authorNode.appendChild(authorContent);
-        divNode.appendChild(authorNode);
     
         const pagesNode = document.createElement("p");
         let pagesContent = document.createTextNode(`${book.pages}`);
         pagesNode.appendChild(pagesContent);
-        divNode.appendChild(pagesNode);
     
         const readNode = document.createElement("p");
-        let readContent = document.createTextNode(`${book.read}`);
+        readNode.setAttribute("class", "book-status");
+        let readContent = document.createTextNode(`Status: ${book.read}`);
         readNode.appendChild(readContent);
-        divNode.appendChild(readNode);
+
+        const deleteButtonNode = document.createElement("button");
+        deleteButtonNode.setAttribute("class", "delete-book-btn");
+        const deleteButtonIcon = document.createElement("i");
+        deleteButtonIcon.setAttribute("class", "material-symbols-outlined");
+        let deletebuttonContent = document.createTextNode("delete")
+        deleteButtonIcon.appendChild(deletebuttonContent);
+        deleteButtonNode.appendChild(deleteButtonIcon);
     
+        divNode.append(titleNode, authorNode, pagesNode, readNode, deleteButtonNode);
         booksSection.appendChild(divNode); 
-        console.log(titleContent);
-        console.log(authorContent);
     });
 }
 
