@@ -27,6 +27,7 @@ function addBookToLibrary(book) {
 }
 
 function showBooksInLibrary(library) {
+    let i = 0;
     library.forEach(book => {
         const divNode = document.createElement("div");
         divNode.setAttribute("class", "book");
@@ -55,10 +56,28 @@ function showBooksInLibrary(library) {
         let deletebuttonContent = document.createTextNode("delete")
         deleteButtonIcon.appendChild(deletebuttonContent);
         deleteButtonNode.appendChild(deleteButtonIcon);
+        deleteButtonNode.addEventListener("click", (e) => removeBookFromLibrary(e));
     
+        deleteButtonNode.setAttribute("data-array-location", i);
+        i++;
+
         divNode.append(titleNode, authorNode, pagesNode, readNode, deleteButtonNode);
         booksSection.appendChild(divNode); 
     });
+}
+
+function removeBookFromLibrary(e) {
+    let bookLocation = e.currentTarget.getAttribute("data-array-location");
+    library.splice(bookLocation, 1);
+    clearDisplayedBooks();
+    showBooksInLibrary(library);
+}
+
+function clearDisplayedBooks() {
+    let displayedBooks = document.querySelectorAll(".book");
+    displayedBooks.forEach(book => {
+        book.remove();
+    })
 }
 
 Book.prototype.info = function () {
@@ -71,7 +90,6 @@ let newBookLength = 0;
 let newBook = {};
 
 submitBook.addEventListener("click", (e) => {
-    // e.preventDefault();
     newBookTitle = bookTitleField.value;
     newBookAuthor = bookAuthorField.value;
     newBookLength = bookLengthField.value;
