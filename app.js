@@ -21,8 +21,12 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary(book) {
+function addToLibrary(book) {
     library.push(book);
+    storeLibrary(library);
+}
+
+function storeLibrary(library) {
     sessionStorage.setItem("books", JSON.stringify(library));
 }
 
@@ -41,13 +45,19 @@ function showBooksInLibrary(library) {
         authorNode.appendChild(authorContent);
     
         const pagesNode = document.createElement("p");
-        let pagesContent = document.createTextNode(`${book.pages}`);
+        let pagesContent = document.createTextNode(`${book.pages} pages`);
         pagesNode.appendChild(pagesContent);
     
-        const readNode = document.createElement("p");
-        readNode.setAttribute("class", "book-status");
-        let readContent = document.createTextNode(`Status: ${book.read}`);
-        readNode.appendChild(readContent);
+        const statusNode = document.createElement("p");
+        statusNode.setAttribute("class", "book-status");
+        let readContent = document.createTextNode("Status: ");
+        statusNode.appendChild(readContent);
+        const bookStatusBtn = document.createElement("button");
+        bookStatusBtn.setAttribute("class", "book-status-btn");
+        const bookStatusBtnContent = document.createTextNode(`${book.read}`);
+        bookStatusBtn.appendChild(bookStatusBtnContent);
+        statusNode.appendChild(bookStatusBtn);
+        
 
         const deleteButtonNode = document.createElement("button");
         deleteButtonNode.setAttribute("class", "delete-book-btn");
@@ -61,7 +71,7 @@ function showBooksInLibrary(library) {
         deleteButtonNode.setAttribute("data-array-location", i);
         i++;
 
-        divNode.append(titleNode, authorNode, pagesNode, readNode, deleteButtonNode);
+        divNode.append(titleNode, authorNode, pagesNode, statusNode, deleteButtonNode);
         booksSection.appendChild(divNode); 
     });
 }
@@ -70,6 +80,8 @@ function removeBookFromLibrary(e) {
     let bookLocation = e.currentTarget.getAttribute("data-array-location");
     library.splice(bookLocation, 1);
     clearDisplayedBooks();
+    sessionStorage.clear();
+    storeLibrary(library);
     showBooksInLibrary(library);
 }
 
@@ -96,7 +108,7 @@ submitBook.addEventListener("click", (e) => {
     newBookRead = bookReadField.value;
 
     newBook = new Book(newBookTitle, newBookAuthor, newBookLength, newBookRead);
-    addBookToLibrary(newBook);
+    addToLibrary(newBook);
 });
 
 showBooksInLibrary(library);
