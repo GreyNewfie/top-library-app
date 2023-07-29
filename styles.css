@@ -28,13 +28,7 @@ button, select {
 }
 
 #header img {
-    width: 400px;
-}
-
-#header div:last-child {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+    width: 350px;
 }
 
 .content-container {
@@ -79,7 +73,7 @@ form>div {
 }
 
 input, select {
-    background-color: rgb(239, 239, 239);
+    background-color: rgb(245, 245, 245);
     border: 1px solid var(--tertiary-color--);
     color: var(--secondary-color--);
     font-size: inherit;

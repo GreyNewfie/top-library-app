@@ -60,8 +60,6 @@ function showBooksInLibrary(library) {
         statusNode.appendChild(bookStatusBtn);
         bookStatusBtn.addEventListener("click", (e) => {
             updateBookStatus(e.target);
-            console.log("e.target is " + e.target);
-            console.log(e.target.innerText);
         });    
 
         const deleteButtonNode = document.createElement("button");
@@ -99,7 +97,6 @@ function clearDisplayedBooks() {
 
 function updateBookStatus (statusButton) {
     let currentStatus = statusButton.innerText;
-    console.log(`Status is ${currentStatus}`);
     if (currentStatus === "Not read") {
         statusButton.innerText = "Reading";
     } else if (currentStatus === "Reading") {
