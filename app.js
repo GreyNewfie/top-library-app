@@ -26,6 +26,7 @@ function addToLibrary(book) {
     storeLibrary(library);
 }
 
+// Add library to session storage
 function storeLibrary(library) {
     sessionStorage.setItem("books", JSON.stringify(library));
 }
@@ -57,9 +58,10 @@ function showBooksInLibrary(library) {
         const bookStatusBtnContent = document.createTextNode(`${book.read}`);
         bookStatusBtn.appendChild(bookStatusBtnContent);
         statusNode.appendChild(bookStatusBtn);
-        bookStatusBtn.addEventListener("click", function(e) {
+        bookStatusBtn.addEventListener("click", (e) => {
             updateBookStatus(e.target);
-            console.log(e.target);
+            console.log("e.target is " + e.target);
+            console.log(e.target.innerText);
         });    
 
         const deleteButtonNode = document.createElement("button");
@@ -98,12 +100,12 @@ function clearDisplayedBooks() {
 function updateBookStatus (statusButton) {
     let currentStatus = statusButton.innerText;
     console.log(`Status is ${currentStatus}`);
-    if (currentStatus === "Not Read") {
+    if (currentStatus === "Not read") {
         statusButton.innerText = "Reading";
     } else if (currentStatus === "Reading") {
         statusButton.innerText = "Read";
     } else if (currentStatus === "Read") {
-        statusButton.innerText = "Not Read";
+        statusButton.innerText = "Not read";
     }
 }
 
