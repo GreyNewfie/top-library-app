@@ -57,7 +57,10 @@ function showBooksInLibrary(library) {
         const bookStatusBtnContent = document.createTextNode(`${book.read}`);
         bookStatusBtn.appendChild(bookStatusBtnContent);
         statusNode.appendChild(bookStatusBtn);
-        
+        bookStatusBtn.addEventListener("click", function(e) {
+            updateBookStatus(e.target);
+            console.log(e.target);
+        });    
 
         const deleteButtonNode = document.createElement("button");
         deleteButtonNode.setAttribute("class", "delete-book-btn");
@@ -90,6 +93,18 @@ function clearDisplayedBooks() {
     displayedBooks.forEach(book => {
         book.remove();
     })
+}
+
+function updateBookStatus (statusButton) {
+    let currentStatus = statusButton.innerText;
+    console.log(`Status is ${currentStatus}`);
+    if (currentStatus === "Not Read") {
+        statusButton.innerText = "Reading";
+    } else if (currentStatus === "Reading") {
+        statusButton.innerText = "Read";
+    } else if (currentStatus === "Read") {
+        statusButton.innerText = "Not Read";
+    }
 }
 
 Book.prototype.info = function () {
