@@ -36,6 +36,11 @@ function showBooksInLibrary(library) {
     library.forEach(book => {
         const divNode = document.createElement("div");
         divNode.setAttribute("class", "book");
+
+        const bookIconNode = document.createElement("i");
+        bookIconNode.setAttribute("class", "material-symbols-outlined book-icon");
+        const bookIconContent = document.createTextNode("auto_stories");
+        bookIconNode.appendChild(bookIconContent);
     
         const titleNode = document.createElement("h4");
         let titleContent = document.createTextNode(`${book.title}`);
@@ -74,7 +79,7 @@ function showBooksInLibrary(library) {
         deleteButtonNode.setAttribute("data-array-location", i);
         i++;
 
-        divNode.append(titleNode, authorNode, pagesNode, statusNode, deleteButtonNode);
+        divNode.append(bookIconNode, titleNode, authorNode, pagesNode, statusNode, deleteButtonNode);
         booksSection.appendChild(divNode); 
     });
 }
